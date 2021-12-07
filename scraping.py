@@ -38,7 +38,7 @@ def hemisphere_images(browser):
 
     for x in items:
         hemisphere = {}
-        titles = x.find('h3').text
+        title = x.find('h3').text
         link_ref = x.find('a', class_='itemLink product-item')['href']
         
         browser.visit(url + link_ref)
@@ -48,10 +48,10 @@ def hemisphere_images(browser):
         download = image_soup.find('div', class_='downloads')
         img_url = url + download.find('a')['href']
         
-        #print(titles)
+        #print(title)
         
         hemisphere['img_url'] = img_url
-        hemisphere['title'] = titles
+        hemisphere['title'] = title
         hemisphere_image_urls.append(hemisphere)
         browser.back()
 
